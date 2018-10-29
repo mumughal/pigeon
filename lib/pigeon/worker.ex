@@ -83,10 +83,10 @@ defmodule Pigeon.Worker do
     {:noreply, [], state}
   end
   
-  def handle_info({:DOWN, ref, :process, _pid, _reason}, lala) do
+  def handle_info({:DOWN, ref, :process, _pid, _reason}, state) do
   IO.inspect "********************"
   IO.inspect "********************"
-  IO.inspect lala
+  IO.inspect state
   IO.inspect "********************"
   IO.inspect "********************"
   {:noreply, [], state}
