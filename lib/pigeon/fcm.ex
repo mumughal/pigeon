@@ -107,6 +107,8 @@ defmodule Pigeon.FCM do
 
   def push(notification, opts) do
     IO.inspect("hereeee")
+    IO.inspect(notification)
+    IO.inspect("hereeee")
     if Keyword.has_key?(opts, :on_response) do
       send_push(notification, opts[:on_response], opts)
       :ok
