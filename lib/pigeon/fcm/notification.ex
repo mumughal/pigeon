@@ -125,8 +125,11 @@ defmodule Pigeon.FCM.Notification do
 
   def new(reg_id, notification, data) when is_binary(reg_id) do
     %Pigeon.FCM.Notification{registration_id: reg_id}
+    |> IO.inspect
     |> put_notification(notification)
+    |> IO.inspect
     |> put_data(data)
+    |> IO.inspect
   end
 
   def new(reg_ids, notification, data) when length(reg_ids) < 1001 do
