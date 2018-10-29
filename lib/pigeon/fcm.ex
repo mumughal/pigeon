@@ -91,7 +91,6 @@ defmodule Pigeon.FCM do
   def push(notification, opts \\ [])
 
   def push(notification, opts) when is_list(notification) do
-    IO.inspect("first")
     timeout = Keyword.get(opts, :timeout, @default_timeout)
 
     if Keyword.has_key?(opts, :on_response) do
@@ -106,7 +105,7 @@ defmodule Pigeon.FCM do
   end
 
   def push(notification, opts) do
-    IO.inspect("second")
+    IO.inspect("hereeee")
     if Keyword.has_key?(opts, :on_response) do
       send_push(notification, opts[:on_response], opts)
       :ok
@@ -124,6 +123,8 @@ defmodule Pigeon.FCM do
 
   defp send_push(notifications, on_response, opts)
        when is_list(notifications) do
+   
+    IO.inspect "sending pushhhhhhhhh"
     worker_name = opts[:to] || @default_worker
 
     notifications
