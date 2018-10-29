@@ -35,6 +35,9 @@ defmodule Pigeon.Worker do
   def send_push(name, notification, opts) do
     # Ensure connections are live before trying to push
     # Doesn't play nice if you try to do it all in one step
+    IO.inspect name
+    IO.inspect notification
+    IO.inspect opts
     timeout = Keyword.get(opts, :timeout, 5_000)
     GenStage.call(name, :ensure_connection, timeout)
     GenStage.call(name, {:push, notification, opts}, timeout)
