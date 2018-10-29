@@ -138,6 +138,7 @@ defmodule Pigeon.FCM do
   end
 
   defp cast_request(worker_name, request, on_response, opts) do
+    IO.inspect "casting request"
     opts = Keyword.put(opts, :on_response, on_response)
     Worker.send_push(worker_name, request, opts)
   end
