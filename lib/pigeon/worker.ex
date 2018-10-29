@@ -82,6 +82,15 @@ defmodule Pigeon.Worker do
     state = %{state | connections: state.connections - 1}
     {:noreply, [], state}
   end
+  
+  def handle_info({:DOWN, ref, :process, _pid, _reason}, lala) do
+  IO.inspect "********************"
+  IO.inspect "********************"
+  IO.inspect lala
+  IO.inspect "********************"
+  IO.inspect "********************"
+  {:noreply, [], state}
+end
 
   def handle_info(_msg, state) do
     {:noreply, [], state}
